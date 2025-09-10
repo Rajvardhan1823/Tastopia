@@ -1,22 +1,11 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
-import DiscoverSection from "@/components/DiscoverSection";
-import FoodCourtsSection from "@/components/FoodCourtsSection";
-import CommunitySection from "@/components/CommunitySection";
-import RecipeSection from "@/components/RecipeSection";
-import CultureSection from "@/components/CultureSection";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
       <main>
         <HeroSection />
-        <DiscoverSection />
-        <FoodCourtsSection />
-        <CommunitySection />
-        <RecipeSection />
-        <CultureSection />
       </main>
       
       {/* Footer */}

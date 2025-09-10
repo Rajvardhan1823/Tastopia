@@ -44,8 +44,10 @@ const HeroSection = () => {
                 placeholder="Search restaurants, food courts, or dishes near you..."
                 className="h-14 pl-12 pr-32 text-lg bg-white/95 backdrop-blur border-0 shadow-strong"
               />
-              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-xl">
-                🔍
+              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607z" />
+                </svg>
               </div>
               <Button
                 size="lg"
@@ -66,8 +68,7 @@ const HeroSection = () => {
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="border-white/30 text-white hover:bg-white/10 text-lg px-8 py-3 h-auto"
+              className="bg-gradient-primary hover:opacity-90 transition-opacity text-lg px-8 py-3 h-auto"
             >
               Explore Food Courts
             </Button>

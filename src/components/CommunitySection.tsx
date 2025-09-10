@@ -94,10 +94,10 @@ const CommunitySection = () => {
                   </div>
                 </div>
                 <div className="flex space-x-2">
-                  <Button variant="outline" size="sm">📷 Photo</Button>
-                  <Button variant="outline" size="sm">📝 Recipe</Button>
-                  <Button variant="outline" size="sm">⭐ Review</Button>
-                  <Button variant="outline" size="sm">📍 Check-in</Button>
+                  <Button variant="outline" size="sm">Photo</Button>
+                  <Button variant="outline" size="sm">Recipe</Button>
+                  <Button variant="outline" size="sm">Review</Button>
+                  <Button variant="outline" size="sm">Check-in</Button>
                 </div>
               </CardContent>
             </Card>

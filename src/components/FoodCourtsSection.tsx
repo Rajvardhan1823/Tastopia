@@ -96,13 +96,13 @@ const FoodCourtsSection = () => {
 
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold mb-2">{court.name}</h3>
-                <p className="text-muted-foreground mb-4">📍 {court.location}</p>
+                <p className="text-muted-foreground mb-4">{court.location}</p>
                 
                 <div className="mb-4">
-                  <p className="text-sm text-muted-foreground mb-2">🕐 {court.timing}</p>
+                  <p className="text-sm text-muted-foreground mb-2">{court.timing}</p>
                   {court.offers && (
                     <Badge variant="outline" className="text-xs bg-primary/10 text-primary border-primary/20">
-                      🎁 {court.offers}
+                      {court.offers}
                     </Badge>
                   )}
                 </div>
@@ -138,17 +138,29 @@ const FoodCourtsSection = () => {
               <h3 className="text-2xl font-bold mb-6 text-center">Why Choose Tastopia Food Courts?</h3>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="text-center">
-                  <div className="text-4xl mb-3">⚡</div>
+                  <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
                   <h4 className="font-semibold mb-2">Skip Token System</h4>
                   <p className="text-white/90 text-sm">Order directly without standing in long queues</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl mb-3">📱</div>
+                  <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                  </div>
                   <h4 className="font-semibold mb-2">Order & Pay Online</h4>
                   <p className="text-white/90 text-sm">Seamless digital ordering and payment</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl mb-3">🍽️</div>
+                  <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-5 5v-5zM4.5 5.653c0-1.337 1.5-3.653 1.5-3.653s1.5 2.316 1.5 3.653a1.5 1.5 0 11-3 0zM15 5h2a2 2 0 012 2v6.5M6 20V4a2 2 0 012-2h6v6.5" />
+                    </svg>
+                  </div>
                   <h4 className="font-semibold mb-2">Ready When You Arrive</h4>
                   <p className="text-white/90 text-sm">Your food will be prepared and waiting</p>
                 </div>

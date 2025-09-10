@@ -2,16 +2,19 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Navigation = () => {
-  const [activeTab, setActiveTab] = useState("discover");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   const navItems = [
-    { id: "discover", label: "Discover", icon: "🔍" },
-    { id: "foodcourts", label: "Food Courts", icon: "🏢" },
-    { id: "community", label: "Community", icon: "👥" },
-    { id: "recipes", label: "Recipes", icon: "📝" },
-    { id: "culture", label: "Culture", icon: "🌍" },
+    { id: "discover", label: "Discover", path: "/discover" },
+    { id: "foodcourts", label: "Food Courts", path: "/food-courts" },
+    { id: "community", label: "Community", path: "/community" },
+    { id: "recipes", label: "Recipes", path: "/recipes" },
+    { id: "culture", label: "Culture", path: "/culture" },
   ];
 
   return (
@@ -35,7 +38,9 @@ const Navigation = () => {
               className="w-full pl-10 bg-muted/50 border-muted-foreground/20 focus:bg-background transition-colors"
             />
             <div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
-              🔍
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607z" />
+              </svg>
             </div>
           </div>
         </div>
@@ -58,14 +63,13 @@ const Navigation = () => {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => setActiveTab(item.id)}
+                onClick={() => navigate(item.path)}
                 className={`flex items-center space-x-2 px-6 py-3 text-sm font-medium transition-colors border-b-2 ${
-                  activeTab === item.id
+                  currentPath === item.path
                     ? "border-primary text-primary bg-primary/5"
                     : "border-transparent text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`}
               >
-                <span className="text-lg">{item.icon}</span>
                 <span>{item.label}</span>
               </button>
             ))}

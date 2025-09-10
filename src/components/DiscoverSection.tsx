@@ -58,7 +58,11 @@ const DiscoverSection = () => {
           <Card className="bg-gradient-primary text-white border-0 shadow-medium">
             <CardContent className="p-6">
               <div className="flex items-center space-x-4">
-                <div className="text-4xl">🤖</div>
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold mb-2">AI Food Assistant</h3>
                   <p className="text-white/90 mb-4">Ask me anything about food! "Best veg dishes near me?" or "Restaurants with parking?"</p>
@@ -108,7 +112,7 @@ const DiscoverSection = () => {
               ⭐ Highly Rated
             </Badge>
             <Badge variant="outline" className="cursor-pointer hover:bg-muted">
-              💰 Budget Friendly
+              Budget Friendly
             </Badge>
             <Badge variant="outline" className="cursor-pointer hover:bg-muted">
               🌱 Veg Only
@@ -153,7 +157,7 @@ const DiscoverSection = () => {
                   <p className="text-muted-foreground mb-2">{restaurant.cuisine} • {restaurant.specialty}</p>
                   
                   <div className="flex justify-between items-center mt-4">
-                    <span className="text-sm text-muted-foreground">🕐 {restaurant.deliveryTime}</span>
+                    <span className="text-sm text-muted-foreground">{restaurant.deliveryTime}</span>
                     <div className="space-x-2">
                       <Button size="sm" variant="outline">View Menu</Button>
                       <Button size="sm" className="bg-gradient-primary hover:opacity-90">Book Table</Button>

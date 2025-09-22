@@ -4,16 +4,65 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const CultureSection = () => {
-  // Cultural content will be managed through backend  
-  const culturalPosts: any[] = [];
+  // Mock data for cultural food content
+  const culturalPosts = [
+    {
+      id: 1,
+      title: "The Rich History of South Indian Filter Coffee",
+      author: {
+        name: "Dr. Meera Rajesh",
+        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=50&h=50&fit=crop&crop=face",
+        expertise: "Food Historian"
+      },
+      image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=250&fit=crop",
+      region: "South India",
+      readTime: "5 min read",
+      excerpt: "Discover how filter coffee became an integral part of Tamil culture and the traditional brewing methods passed down through generations...",
+      tags: ["Coffee Culture", "Tamil Nadu", "Traditional", "History"],
+      likes: 1420,
+      type: "article"
+    },
+    {
+      id: 2,
+      title: "Street Food Chronicles: Mumbai's Vada Pav Journey",
+      author: {
+        name: "Rohit Shah",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face",
+        expertise: "Food Blogger"
+      },
+      image: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=250&fit=crop",
+      region: "Maharashtra",
+      readTime: "7 min read", 
+      excerpt: "From humble beginnings to becoming Mumbai's most beloved street food, the story of Vada Pav is a testament to the city's spirit...",
+      tags: ["Street Food", "Mumbai", "Innovation", "Culture"],
+      likes: 2100,
+      type: "story"
+    },
+    {
+      id: 3,
+      title: "The Art of Bengali Sweets: More Than Just Desserts",
+      author: {
+        name: "Anita Banerjee",
+        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face",
+        expertise: "Cultural Food Writer"
+      },
+      image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=250&fit=crop",
+      region: "West Bengal",
+      readTime: "6 min read",
+      excerpt: "Bengali sweets are not just confections but carriers of culture, emotion, and celebration. Each sweet tells a story of tradition...",
+      tags: ["Bengali Cuisine", "Sweets", "Tradition", "Festivals"],
+      likes: 1850,
+      type: "article"
+    }
+  ];
 
   const regions = [
-    { name: "North India", flag: "🏔️" },
-    { name: "South India", flag: "🌴" },
-    { name: "East India", flag: "🐟" },
-    { name: "West India", flag: "🌊" },
-    { name: "Central India", flag: "🌾" },
-    { name: "Northeast", flag: "🏔️" }
+    { name: "North India", count: "450+", flag: "🏔️" },
+    { name: "South India", count: "380+", flag: "🌴" },
+    { name: "East India", count: "290+", flag: "🐟" },
+    { name: "West India", count: "320+", flag: "🌊" },
+    { name: "Central India", count: "180+", flag: "🌾" },
+    { name: "Northeast", count: "120+", flag: "🏔️" }
   ];
 
   return (
@@ -47,25 +96,67 @@ const CultureSection = () => {
         <div className="grid lg:grid-cols-4 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-3">
-          {/* Featured Articles - Backend Integration Needed */}
-          <div className="text-center py-16">
-            <div className="text-6xl mb-4">📚</div>
-            <h3 className="text-2xl font-bold mb-4">Cultural Food Stories Platform</h3>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Platform ready for cultural food content, stories, and blog management with user contributions
-            </p>
-            <div className="max-w-2xl mx-auto">
-              <div className="p-6 border rounded-lg">
-                <h4 className="font-semibold mb-2">Culture Features</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Food history and cultural stories</li>
-                  <li>• Regional cuisine insights and traditions</li>
-                  <li>• User-contributed articles and experiences</li>
-                  <li>• Cultural food photography and heritage</li>
-                </ul>
-              </div>
+            {/* Featured Articles */}
+            <div className="space-y-6">
+              {culturalPosts.map((post) => (
+                <Card key={post.id} className="overflow-hidden hover:shadow-medium transition-all">
+                  <div className="md:flex">
+                    <div className="md:w-1/3">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-48 md:h-full object-cover"
+                      />
+                    </div>
+                    <div className="md:w-2/3">
+                      <CardContent className="p-6">
+                        <div className="flex items-center space-x-2 mb-3">
+                          <Badge variant="secondary">{post.region}</Badge>
+                          <Badge variant="outline" className="capitalize">{post.type}</Badge>
+                        </div>
+
+                        <h3 className="text-xl font-bold mb-3 hover:text-primary cursor-pointer transition-colors">
+                          {post.title}
+                        </h3>
+
+                        <div className="flex items-center space-x-3 mb-3">
+                          <Avatar className="w-8 h-8">
+                            <AvatarImage src={post.author.avatar} />
+                            <AvatarFallback>{post.author.name.charAt(0)}</AvatarFallback>
+                          </Avatar>
+                          <div>
+                            <div className="font-medium text-sm">{post.author.name}</div>
+                            <div className="text-xs text-muted-foreground">{post.author.expertise}</div>
+                          </div>
+                        </div>
+
+                        <p className="text-muted-foreground mb-4 line-clamp-2">
+                          {post.excerpt}
+                        </p>
+
+                        <div className="flex flex-wrap gap-1 mb-4">
+                          {post.tags.slice(0, 3).map((tag, index) => (
+                            <Badge key={index} variant="outline" className="text-xs">
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+
+                        <div className="flex justify-between items-center">
+                          <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+                            <span>📖 {post.readTime}</span>
+                            <span>❤️ {post.likes}</span>
+                          </div>
+                          <Button variant="outline" size="sm">
+                            Read Article
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </div>
+                  </div>
+                </Card>
+              ))}
             </div>
-          </div>
 
             {/* Load More */}
             <div className="text-center mt-8">
@@ -90,7 +181,7 @@ const CultureSection = () => {
                         <span>{region.flag}</span>
                         <span className="font-medium">{region.name}</span>
                       </div>
-                      <span className="text-sm text-muted-foreground">Browse</span>
+                      <span className="text-sm text-muted-foreground">{region.count}</span>
                     </div>
                   ))}
                 </div>
@@ -128,9 +219,9 @@ const CultureSection = () => {
               <CardContent className="p-6 pt-0">
                 <div className="space-y-4">
                   {[
-                    { name: "Dr. Food History", expertise: "Food Historian" },
-                    { name: "Culture Kitchen", expertise: "Cultural Writer" },
-                    { name: "Heritage Chef", expertise: "Traditional Cook" }
+                    { name: "Dr. Food History", expertise: "Food Historian", articles: "45" },
+                    { name: "Culture Kitchen", expertise: "Cultural Writer", articles: "32" },
+                    { name: "Heritage Chef", expertise: "Traditional Cook", articles: "28" }
                   ].map((contributor, index) => (
                     <div key={index} className="flex items-center space-x-3">
                       <Avatar className="w-8 h-8">
@@ -138,7 +229,7 @@ const CultureSection = () => {
                       </Avatar>
                       <div className="flex-1">
                         <div className="font-medium text-sm">{contributor.name}</div>
-                        <div className="text-xs text-muted-foreground">{contributor.expertise}</div>
+                        <div className="text-xs text-muted-foreground">{contributor.articles} articles</div>
                       </div>
                       <Button size="sm" variant="outline">Follow</Button>
                     </div>

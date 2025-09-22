@@ -21,29 +21,29 @@ const Index = () => {
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Platform</h4>
+              <h4 className="font-semibold mb-4">Discover</h4>
               <ul className="space-y-2 text-sm text-background/80">
                 <li>Restaurants</li>
                 <li>Food Courts</li>
-                <li>Community</li>
                 <li>Recipes</li>
+                <li>Culture</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Features</h4>
+              <h4 className="font-semibold mb-4">Community</h4>
               <ul className="space-y-2 text-sm text-background/80">
-                <li>Order Management</li>
-                <li>Real-time Updates</li>
-                <li>POS Integration</li>
-                <li>Stock Management</li>
+                <li>Join Community</li>
+                <li>Share Recipes</li>
+                <li>Write Articles</li>
+                <li>Food Reviews</li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Support</h4>
               <ul className="space-y-2 text-sm text-background/80">
-                <li>API Documentation</li>
-                <li>Integration Guide</li>
-                <li>Contact Support</li>
+                <li>Help Center</li>
+                <li>Contact Us</li>
+                <li>Privacy Policy</li>
                 <li>Terms of Service</li>
               </ul>
             </div>

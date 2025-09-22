@@ -5,44 +5,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import foodCourtImage from "@/assets/food-court-hero.jpg";
 
 const FoodCourtsSection = () => {
-  // Mock data for food courts and malls
-  const foodCourts = [
-    {
-      id: 1,
-      name: "Phoenix Mall Food Court",
-      location: "Velachery, Chennai",
-      totalStores: 24,
-      status: "Open",
-      timing: "10 AM - 10 PM",
-      image: foodCourtImage,
-      popularStores: ["KFC", "McDonald's", "Subway", "Taco Bell"],
-      offers: "20% off on orders above ₹300"
-    },
-    {
-      id: 2,
-      name: "Express Avenue Food Court",
-      location: "Royapettah, Chennai",
-      totalStores: 18,
-      status: "Open",
-      timing: "11 AM - 11 PM",
-      image: foodCourtImage,
-      popularStores: ["Pizza Hut", "Domino's", "Burger King", "Starbucks"],
-      offers: "Buy 1 Get 1 Free on beverages"
-    },
-    {
-      id: 3,
-      name: "Forum Mall Food Junction",
-      location: "Vadapalani, Chennai",
-      totalStores: 16,
-      status: "Open",
-      timing: "10 AM - 9 PM",
-      image: foodCourtImage,
-      popularStores: ["Wow! Momo", "Faasos", "Behrouz Biryani", "Oven Story"],
-      offers: "Free delivery on food court orders"
-    }
-  ];
-
-  const cities = ["Chennai", "Mumbai", "Delhi", "Bangalore", "Hyderabad", "Pune"];
+  // Data will be fetched from PetPooja API
+  const foodCourts: any[] = [];
+  const cities = ["Select City"]; // Will be populated from API
 
   return (
     <section className="py-16 bg-background">
@@ -74,61 +39,24 @@ const FoodCourtsSection = () => {
           </div>
         </div>
 
-        {/* Food Courts Grid */}
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-          {foodCourts.map((court) => (
-            <Card key={court.id} className="overflow-hidden hover:shadow-medium transition-all">
-              <div className="relative">
-                <img
-                  src={court.image}
-                  alt={court.name}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute top-4 left-4">
-                  <Badge variant="secondary" className="bg-secondary text-secondary-foreground">
-                    {court.status}
-                  </Badge>
-                </div>
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-semibold">
-                  {court.totalStores} Stores
-                </div>
-              </div>
-
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-2">{court.name}</h3>
-                <p className="text-muted-foreground mb-4">{court.location}</p>
-                
-                <div className="mb-4">
-                  <p className="text-sm text-muted-foreground mb-2">{court.timing}</p>
-                  {court.offers && (
-                    <Badge variant="outline" className="text-xs bg-primary/10 text-primary border-primary/20">
-                      {court.offers}
-                    </Badge>
-                  )}
-                </div>
-
-                <div className="mb-6">
-                  <h4 className="font-semibold mb-2">Popular Stores:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {court.popularStores.map((store, index) => (
-                      <Badge key={index} variant="outline" className="text-xs">
-                        {store}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Button className="w-full bg-gradient-primary hover:opacity-90 transition-opacity">
-                    View All Stores & Order
-                  </Button>
-                  <Button variant="outline" className="w-full">
-                    See Menu & Prices
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+        {/* Food Courts Grid - Will populate from API */}
+        <div className="text-center py-16">
+          <div className="text-6xl mb-4">🏬</div>
+          <h3 className="text-2xl font-bold mb-4">Food Courts Integration Ready</h3>
+          <p className="text-muted-foreground mb-8">
+            Connect with PetPooja API to display food courts and enable ordering
+          </p>
+          <div className="max-w-2xl mx-auto">
+            <div className="p-6 border rounded-lg">
+              <h4 className="font-semibold mb-2">Features Ready</h4>
+              <ul className="text-sm text-muted-foreground space-y-1">
+                <li>• Fetch restaurant menus from food courts</li>
+                <li>• Place orders directly to POS systems</li>
+                <li>• Real-time order status updates</li>
+                <li>• Skip traditional token systems</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         {/* Benefits Section */}

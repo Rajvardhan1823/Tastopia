@@ -77,15 +77,15 @@ const HeroSection = () => {
           {/* Stats */}
           <div className="flex justify-center items-center space-x-8 mt-12 text-white/80">
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">50K+</div>
-              <div className="text-sm">Restaurants</div>
+              <div className="text-2xl font-bold text-white">Restaurants</div>
+              <div className="text-sm">Partner Network</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">200+</div>
-              <div className="text-sm">Food Courts</div>
+              <div className="text-2xl font-bold text-white">Food Courts</div>
+              <div className="text-sm">Easy Ordering</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">1M+</div>
+              <div className="text-2xl font-bold text-white">Community</div>
               <div className="text-sm">Food Lovers</div>
             </div>
           </div>

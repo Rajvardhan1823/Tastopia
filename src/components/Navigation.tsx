@@ -22,7 +22,10 @@ const Navigation = () => {
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-4">
-          <div className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+          <div 
+            className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent cursor-pointer" 
+            onClick={() => navigate('/')}
+          >
             Tastopia
           </div>
           <Badge variant="secondary" className="hidden sm:inline-flex">

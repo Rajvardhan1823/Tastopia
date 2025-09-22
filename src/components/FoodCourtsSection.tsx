@@ -5,45 +5,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import foodCourtImage from "@/assets/food-court-hero.jpg";
 
 const FoodCourtsSection = () => {
-  // Mock data for food courts and malls
-  const foodCourts = [
-    {
-      id: 1,
-      name: "Phoenix Mall Food Court",
-      location: "Velachery, Chennai",
-      totalStores: 24,
-      status: "Open",
-      timing: "10 AM - 10 PM",
-      image: foodCourtImage,
-      popularStores: ["KFC", "McDonald's", "Subway", "Taco Bell"],
-      offers: "20% off on orders above ₹300"
-    },
-    {
-      id: 2,
-      name: "Express Avenue Food Court",
-      location: "Royapettah, Chennai",
-      totalStores: 18,
-      status: "Open",
-      timing: "11 AM - 11 PM",
-      image: foodCourtImage,
-      popularStores: ["Pizza Hut", "Domino's", "Burger King", "Starbucks"],
-      offers: "Buy 1 Get 1 Free on beverages"
-    },
-    {
-      id: 3,
-      name: "Forum Mall Food Junction",
-      location: "Vadapalani, Chennai",
-      totalStores: 16,
-      status: "Open",
-      timing: "10 AM - 9 PM",
-      image: foodCourtImage,
-      popularStores: ["Wow! Momo", "Faasos", "Behrouz Biryani", "Oven Story"],
-      offers: "Free delivery on food court orders"
-    }
-  ];
-
-  const cities = ["Chennai", "Mumbai", "Delhi", "Bangalore", "Hyderabad", "Pune"];
-
   return (
     <section className="py-16 bg-background">
       <div className="container">
@@ -64,71 +25,26 @@ const FoodCourtsSection = () => {
                 <SelectValue placeholder="Choose city" />
               </SelectTrigger>
               <SelectContent>
-                {cities.map((city) => (
-                  <SelectItem key={city.toLowerCase()} value={city.toLowerCase()}>
-                    {city}
-                  </SelectItem>
-                ))}
+                <SelectItem value="chennai">Chennai</SelectItem>
+                <SelectItem value="mumbai">Mumbai</SelectItem>
+                <SelectItem value="delhi">Delhi</SelectItem>
+                <SelectItem value="bangalore">Bangalore</SelectItem>
+                <SelectItem value="hyderabad">Hyderabad</SelectItem>
+                <SelectItem value="pune">Pune</SelectItem>
               </SelectContent>
             </Select>
           </div>
         </div>
 
         {/* Food Courts Grid */}
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-          {foodCourts.map((court) => (
-            <Card key={court.id} className="overflow-hidden hover:shadow-medium transition-all">
-              <div className="relative">
-                <img
-                  src={court.image}
-                  alt={court.name}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute top-4 left-4">
-                  <Badge variant="secondary" className="bg-secondary text-secondary-foreground">
-                    {court.status}
-                  </Badge>
-                </div>
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-semibold">
-                  {court.totalStores} Stores
-                </div>
-              </div>
-
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-2">{court.name}</h3>
-                <p className="text-muted-foreground mb-4">{court.location}</p>
-                
-                <div className="mb-4">
-                  <p className="text-sm text-muted-foreground mb-2">{court.timing}</p>
-                  {court.offers && (
-                    <Badge variant="outline" className="text-xs bg-primary/10 text-primary border-primary/20">
-                      {court.offers}
-                    </Badge>
-                  )}
-                </div>
-
-                <div className="mb-6">
-                  <h4 className="font-semibold mb-2">Popular Stores:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {court.popularStores.map((store, index) => (
-                      <Badge key={index} variant="outline" className="text-xs">
-                        {store}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Button className="w-full bg-gradient-primary hover:opacity-90 transition-opacity">
-                    View All Stores & Order
-                  </Button>
-                  <Button variant="outline" className="w-full">
-                    See Menu & Prices
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="text-center text-muted-foreground py-16">
+          <div className="space-y-4">
+            <svg className="w-16 h-16 mx-auto text-muted-foreground/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+            <h3 className="text-xl font-semibold">No food courts loaded</h3>
+            <p>Food court data will be loaded from PetPooja API</p>
+          </div>
         </div>
 
         {/* Benefits Section */}

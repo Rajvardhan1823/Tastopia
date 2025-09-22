@@ -4,52 +4,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const DiscoverSection = () => {
-  // Mock data for restaurants
-  const restaurants = [
-    {
-      id: 1,
-      name: "Mumbai Spice Kitchen",
-      cuisine: "Indian",
-      rating: 4.8,
-      deliveryTime: "25-35 min",
-      image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=300&h=200&fit=crop",
-      specialty: "Biryani",
-      price: "₹₹",
-      tags: ["Dine-in", "Book Table", "Popular"]
-    },
-    {
-      id: 2,
-      name: "Tokyo Ramen House",
-      cuisine: "Japanese",
-      rating: 4.6,
-      deliveryTime: "30-40 min",
-      image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300&h=200&fit=crop",
-      specialty: "Authentic Ramen",
-      price: "₹₹₹",
-      tags: ["Dine-in", "Chef Special"]
-    },
-    {
-      id: 3,
-      name: "Italian Corner",
-      cuisine: "Italian",
-      rating: 4.7,
-      deliveryTime: "20-30 min",
-      image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300&h=200&fit=crop",
-      specialty: "Wood-fired Pizza",
-      price: "₹₹",
-      tags: ["Dine-in", "Book Table", "Family"]
-    }
-  ];
-
-  const cuisineTypes = [
-    { name: "Indian", count: "2.5K+", icon: "🍛" },
-    { name: "Chinese", count: "1.8K+", icon: "🥢" },
-    { name: "Italian", count: "950+", icon: "🍝" },
-    { name: "Mexican", count: "450+", icon: "🌮" },
-    { name: "Thai", count: "380+", icon: "🍜" },
-    { name: "American", count: "320+", icon: "🍔" }
-  ];
-
   return (
     <section className="py-16 bg-muted/30">
       <div className="container">
@@ -58,8 +12,8 @@ const DiscoverSection = () => {
           <Card className="bg-gradient-primary text-white border-0 shadow-medium">
             <CardContent className="p-6">
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                  <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                   </svg>
                 </div>
@@ -84,18 +38,8 @@ const DiscoverSection = () => {
         {/* Cuisine Categories */}
         <div className="mb-12">
           <h2 className="text-3xl font-bold mb-6">Browse by Cuisine</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {cuisineTypes.map((cuisine, index) => (
-              <Card key={index} className="hover:shadow-medium transition-all cursor-pointer group">
-                <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">
-                    {cuisine.icon}
-                  </div>
-                  <h4 className="font-semibold mb-1">{cuisine.name}</h4>
-                  <p className="text-sm text-muted-foreground">{cuisine.count}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="text-center text-muted-foreground">
+            <p>Cuisine categories will be loaded from your restaurant data</p>
           </div>
         </div>
 
@@ -103,19 +47,31 @@ const DiscoverSection = () => {
         <div className="mb-8">
           <div className="flex flex-wrap gap-2">
             <Badge variant="secondary" className="cursor-pointer hover:bg-secondary/80">
-              🍴 Dine-in Available
+              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              </svg>
+              Dine-in Available
             </Badge>
             <Badge variant="outline" className="cursor-pointer hover:bg-muted">
-              🅿️ Parking Available
+              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2v0a2 2 0 01-2-2v-5H8z" />
+              </svg>
+              Parking Available
             </Badge>
             <Badge variant="outline" className="cursor-pointer hover:bg-muted">
-              ⭐ Highly Rated
+              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg>
+              Highly Rated
             </Badge>
             <Badge variant="outline" className="cursor-pointer hover:bg-muted">
               Budget Friendly
             </Badge>
             <Badge variant="outline" className="cursor-pointer hover:bg-muted">
-              🌱 Veg Only
+              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+              Veg Only
             </Badge>
           </div>
         </div>
@@ -127,45 +83,14 @@ const DiscoverSection = () => {
             <Button variant="outline">View All</Button>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {restaurants.map((restaurant) => (
-              <Card key={restaurant.id} className="hover:shadow-medium transition-all cursor-pointer group overflow-hidden">
-                <div className="relative">
-                  <img
-                    src={restaurant.image}
-                    alt={restaurant.name}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
-                  />
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-full text-sm font-semibold">
-                    ⭐ {restaurant.rating}
-                  </div>
-                  <div className="absolute bottom-4 left-4 flex space-x-1">
-                    {restaurant.tags.map((tag, index) => (
-                      <Badge key={index} variant="secondary" className="text-xs bg-white/90 text-foreground">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-                
-                <CardContent className="p-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-semibold text-lg">{restaurant.name}</h3>
-                    <span className="text-sm text-muted-foreground">{restaurant.price}</span>
-                  </div>
-                  
-                  <p className="text-muted-foreground mb-2">{restaurant.cuisine} • {restaurant.specialty}</p>
-                  
-                  <div className="flex justify-between items-center mt-4">
-                    <span className="text-sm text-muted-foreground">{restaurant.deliveryTime}</span>
-                    <div className="space-x-2">
-                      <Button size="sm" variant="outline">View Menu</Button>
-                      <Button size="sm" className="bg-gradient-primary hover:opacity-90">Book Table</Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="text-center text-muted-foreground py-16">
+            <div className="space-y-4">
+              <svg className="w-16 h-16 mx-auto text-muted-foreground/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+              <h3 className="text-xl font-semibold">No restaurants loaded</h3>
+              <p>Restaurant data will be loaded from PetPooja API</p>
+            </div>
           </div>
         </div>
       </div>

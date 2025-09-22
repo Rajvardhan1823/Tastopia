@@ -4,67 +4,6 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const CultureSection = () => {
-  // Mock data for cultural food content
-  const culturalPosts = [
-    {
-      id: 1,
-      title: "The Rich History of South Indian Filter Coffee",
-      author: {
-        name: "Dr. Meera Rajesh",
-        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=50&h=50&fit=crop&crop=face",
-        expertise: "Food Historian"
-      },
-      image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=250&fit=crop",
-      region: "South India",
-      readTime: "5 min read",
-      excerpt: "Discover how filter coffee became an integral part of Tamil culture and the traditional brewing methods passed down through generations...",
-      tags: ["Coffee Culture", "Tamil Nadu", "Traditional", "History"],
-      likes: 1420,
-      type: "article"
-    },
-    {
-      id: 2,
-      title: "Street Food Chronicles: Mumbai's Vada Pav Journey",
-      author: {
-        name: "Rohit Shah",
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face",
-        expertise: "Food Blogger"
-      },
-      image: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=250&fit=crop",
-      region: "Maharashtra",
-      readTime: "7 min read", 
-      excerpt: "From humble beginnings to becoming Mumbai's most beloved street food, the story of Vada Pav is a testament to the city's spirit...",
-      tags: ["Street Food", "Mumbai", "Innovation", "Culture"],
-      likes: 2100,
-      type: "story"
-    },
-    {
-      id: 3,
-      title: "The Art of Bengali Sweets: More Than Just Desserts",
-      author: {
-        name: "Anita Banerjee",
-        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face",
-        expertise: "Cultural Food Writer"
-      },
-      image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=250&fit=crop",
-      region: "West Bengal",
-      readTime: "6 min read",
-      excerpt: "Bengali sweets are not just confections but carriers of culture, emotion, and celebration. Each sweet tells a story of tradition...",
-      tags: ["Bengali Cuisine", "Sweets", "Tradition", "Festivals"],
-      likes: 1850,
-      type: "article"
-    }
-  ];
-
-  const regions = [
-    { name: "North India", count: "450+", flag: "🏔️" },
-    { name: "South India", count: "380+", flag: "🌴" },
-    { name: "East India", count: "290+", flag: "🐟" },
-    { name: "West India", count: "320+", flag: "🌊" },
-    { name: "Central India", count: "180+", flag: "🌾" },
-    { name: "Northeast", count: "120+", flag: "🏔️" }
-  ];
-
   return (
     <section className="py-16 bg-muted/30">
       <div className="container">
@@ -97,65 +36,14 @@ const CultureSection = () => {
           {/* Main Content */}
           <div className="lg:col-span-3">
             {/* Featured Articles */}
-            <div className="space-y-6">
-              {culturalPosts.map((post) => (
-                <Card key={post.id} className="overflow-hidden hover:shadow-medium transition-all">
-                  <div className="md:flex">
-                    <div className="md:w-1/3">
-                      <img
-                        src={post.image}
-                        alt={post.title}
-                        className="w-full h-48 md:h-full object-cover"
-                      />
-                    </div>
-                    <div className="md:w-2/3">
-                      <CardContent className="p-6">
-                        <div className="flex items-center space-x-2 mb-3">
-                          <Badge variant="secondary">{post.region}</Badge>
-                          <Badge variant="outline" className="capitalize">{post.type}</Badge>
-                        </div>
-
-                        <h3 className="text-xl font-bold mb-3 hover:text-primary cursor-pointer transition-colors">
-                          {post.title}
-                        </h3>
-
-                        <div className="flex items-center space-x-3 mb-3">
-                          <Avatar className="w-8 h-8">
-                            <AvatarImage src={post.author.avatar} />
-                            <AvatarFallback>{post.author.name.charAt(0)}</AvatarFallback>
-                          </Avatar>
-                          <div>
-                            <div className="font-medium text-sm">{post.author.name}</div>
-                            <div className="text-xs text-muted-foreground">{post.author.expertise}</div>
-                          </div>
-                        </div>
-
-                        <p className="text-muted-foreground mb-4 line-clamp-2">
-                          {post.excerpt}
-                        </p>
-
-                        <div className="flex flex-wrap gap-1 mb-4">
-                          {post.tags.slice(0, 3).map((tag, index) => (
-                            <Badge key={index} variant="outline" className="text-xs">
-                              {tag}
-                            </Badge>
-                          ))}
-                        </div>
-
-                        <div className="flex justify-between items-center">
-                          <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-                            <span>📖 {post.readTime}</span>
-                            <span>❤️ {post.likes}</span>
-                          </div>
-                          <Button variant="outline" size="sm">
-                            Read Article
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </div>
-                  </div>
-                </Card>
-              ))}
+            <div className="text-center text-muted-foreground py-16">
+              <div className="space-y-4">
+                <svg className="w-16 h-16 mx-auto text-muted-foreground/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+                <h3 className="text-xl font-semibold">No cultural articles yet</h3>
+                <p>Food culture articles will be loaded when contributors start sharing their knowledge</p>
+              </div>
             </div>
 
             {/* Load More */}
@@ -174,16 +62,8 @@ const CultureSection = () => {
                 <CardTitle className="text-lg">Explore by Region</CardTitle>
               </CardHeader>
               <CardContent className="p-6 pt-0">
-                <div className="space-y-3">
-                  {regions.map((region, index) => (
-                    <div key={index} className="flex justify-between items-center hover:bg-muted/50 p-2 rounded cursor-pointer transition-colors">
-                      <div className="flex items-center space-x-2">
-                        <span>{region.flag}</span>
-                        <span className="font-medium">{region.name}</span>
-                      </div>
-                      <span className="text-sm text-muted-foreground">{region.count}</span>
-                    </div>
-                  ))}
+                <div className="text-center text-muted-foreground py-8">
+                  <p>Regional content will be loaded from contributor articles</p>
                 </div>
               </CardContent>
             </Card>
